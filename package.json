@@ -1,6 +1,6 @@
 {
   "name": "cronos-utils",
-  "version": "0.0.1",
+  "version": "0.0.1.1",
   "description": "",
   "type": "module",
   "main": "app.js",
@@ -8,12 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "cronos-watch": "./bin/cronos-watch.exe"
+    "cronos-watch": "./bin/cronos-watch0011.exe",
+    "cronos-build": "./bin/cronos-build000.exe"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "simple-git": "^3.20.0"
-  }
+  "license": "MIT"
 }
