@@ -1,6 +1,6 @@
 {
   "name": "cronos-utils",
-  "version": "0.0.1.1",
+  "version": "0.0.3",
   "description": "",
   "type": "module",
   "main": "app.js",
@@ -8,8 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "cronos-watch": "./bin/cronos-watch0011.exe",
-    "cronos-build": "./bin/cronos-build000.exe"
+    "cronos-build": "./bin/cronos-build002.exe",
+    "cronos-preview": "./bin/cronos-preview001.exe",
+    "cronos-watch": "./bin/cronos-watch003.exe"
   },
   "keywords": [],
   "author": "",

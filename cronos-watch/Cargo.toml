@@ -1,7 +1,11 @@
 [package]
 name = "cronos-watch"
-version = "0.1.0"
+version = "0.0.3"
 edition = "2021"
+
+[[bin]]
+name = "cronos-watch003"
+path = "src/main.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
