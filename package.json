@@ -12,8 +12,8 @@
   ],
   "bin": {
     "cronos-build": "./bin/cronos-build.js",
-    "cronos-build-linux": "./bin/cronos-build002",
-    "cronos-build-windows": "./bin/cronos-build002.exe",
+    "cronos-build-linux": "./bin/cronos-build003",
+    "cronos-build-windows": "./bin/cronos-build003.exe",
     "cronos-preview": "./bin/cronos-preview001.exe",
     "cronos-watch": "./bin/cronos-watch003.exe"
   },
