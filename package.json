@@ -1,6 +1,6 @@
 {
   "name": "cronos-utils",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "type": "module",
   "main": "app.js",
@@ -12,7 +12,7 @@
   ],
   "bin": {
     "cronos-build": "./bin/cronos-build.js",
-    "cronos-build-linux": "./bin/cronos-build003",
+    "cronos-build-linux": "./bin/cronos-build004",
     "cronos-build-windows": "./bin/cronos-build003.exe",
     "cronos-preview": "./bin/cronos-preview001.exe",
     "cronos-watch": "./bin/cronos-watch003.exe"
