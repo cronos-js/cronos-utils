@@ -26,7 +26,7 @@ if (platform == "darwin") {
 } else if (platform == "linux") {
   console.log("Cronos Build 🔥");
 
-  exec(`npx cronos-build-linux ${args[0]}`, (error, stdout, stderr) => {
+  exec(`npx cronos-build-x86_64-unknown-linux-musl ${args[0]}`, (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
       return;
