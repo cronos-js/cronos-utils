@@ -1,12 +1,12 @@
 [package]
 name = "cronos-build"
-version = "0.0.2"
+version = "0.0.3"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [[bin]]
-name = "cronos-build002"
+name = "cronos-build003"
 path = "src/main.rs"
 
 [dependencies]
