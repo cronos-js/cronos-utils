@@ -1,9 +1,9 @@
 {
   "name": "cronos-utils",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "",
   "type": "module",
-  "main": "app.js",
+  "main": "./bin/cronos-build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,10 +12,17 @@
   ],
   "bin": {
     "cronos-build": "./bin/cronos-build.js",
-    "cronos-build-x86_64-unknown-linux-musl": "./bin/cronos-build005",
-    "cronos-build-windows": "./bin/cronos-build003.exe",
-    "cronos-preview": "./bin/cronos-preview001.exe",
-    "cronos-watch": "./bin/cronos-watch003.exe"
+    "cronos-preview": "./bin/cronos-preview.js",
+    "cronos-watch": "./bin/cronos-watch.js",
+
+    "cronos-build-x86_64-unknown-linux-musl": "./bin/x86_64-unknown-linux-musl/cronos-build",
+    "cronos-build-x86_64-pc-windows-gnu": "./bin/x86_64-pc-windows-gnu/cronos-build.exe",
+
+    "cronos-preview-x86_64-unknown-linux-musl": "./bin/x86_64-unknown-linux-musl/cronos-preview",
+    "cronos-preview-x86_64-pc-windows-gnu": "./bin/x86_64-pc-windows-gnu/cronos-preview.exe",
+
+    "cronos-watch-x86_64-unknown-linux-musl": "./bin/x86_64-unknown-linux-musl/cronos-watch",
+    "cronos-watch-x86_64-pc-windows-gnu": "./bin/x86_64-pc-windows-gnu/cronos-watch.exe"
   },
   "keywords": [],
   "author": "",

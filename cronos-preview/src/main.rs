@@ -26,8 +26,8 @@ async fn main() {
                 .listing(true),
             );
         
-            println!("Cronos.js 🔥");
             println!("🚀 Server is running on http://localhost:5800");
+
             let acceptor = TcpListener::new("127.0.0.1:5800").bind().await;
             Server::new(acceptor).serve(router).await;
         }
