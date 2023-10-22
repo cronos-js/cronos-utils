@@ -11,8 +11,8 @@ console.clear();
 
 console.clear();
 console.log("\x1b[31m---------------------");
-console.log("|  \x1b[37mCronos Watch 🔥  \x1b[31m|");
-console.log("---------------------\x1b[37m");
+console.log("\x1b|  \x1b[37mCronos Watch 🔥  \x1b[31m|");
+console.log("\x1b---------------------\x1b[37m");
 
 const isWin = os.platform() === "win32" || os.platform() === "win64";
 
