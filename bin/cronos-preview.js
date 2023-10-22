@@ -1,49 +1,23 @@
 #!/usr/bin/env node
-
-import os from "os";
-
-import { spawn } from "child_process";
-
-const arch = os.arch();
-
-const platform = os.platform();
-
-const args = process.argv.slice(2);
-
-const execPreview = (binarie) => {
-  const command = spawn("npx.cmd", [binarie, args[0]]);
-
-  command.stdout.on("data", (data) => {
-    console.log(`${data}`);
-  });
-
-  command.stderr.on("data", (data) => {
-    console.log(`${data}`);
-  });
-
-  command.on("error", (error) => {
-    console.log(`${error.message}`);
-  });
-};
-
-console.log("Cronos Preview 🔥");
-
-const error = () => console.log("Architecture not supported.");
-
-if (platform == "darwin") {
-  error();
-} else if (platform == "win32" || platform == "win64") {
-  if (arch == "x64") {
-    execPreview("cronos-preview-x86_64-pc-windows-gnu");
-  } else {
-    error();
-  }
-} else if (platform == "linux") {
-  console.log("Cronos Preview 🔥");
-
-  if (arch == "x64") {
-    execPreview("cronos-preview-x86_64-unknown-linux-musl");
-  } else {
-    error();
-  }
+import express from "express";
+import path from "path";
+import { exec, spawn } from "child_process";
+var args = process.argv.slice(2);
+var projectType = args[0];
+console.clear();
+console.log("\x1b[31m---------------------");
+console.log("| \x1b[37mCronos Preview \uD83D\uDD25 \x1b[31m|");
+console.log("---------------------\x1b[37m");
+if (projectType == "--express") {
+    spawn("node", [
+        "./build/index.js"
+    ], {
+        stdio: "inherit"
+    });
+} else if (projectType == "--react") {
+    var app = express();
+    app.use(express.static("./dist"));
+    app.listen(5800);
+    console.log("\uD83D\uDE80 Server running on \x1b[33mhttp://localhost:5800\x1b[37m");
 }
+

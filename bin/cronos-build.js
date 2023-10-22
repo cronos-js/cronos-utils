@@ -1,56 +1,34 @@
 #!/usr/bin/env node
-
-import os from "os";
-
-import { exec } from "child_process";
-
-const arch = os.arch();
-const platform = os.platform();
-
-const args = process.argv.slice(2);
-
-console.log("Cronos Build 🔥");
-
-const error = () => console.log("Architecture not supported.");
-
-if (platform == "darwin") {
-  null;
-} else if (platform == "win32" || platform == "win64") {
-  if (arch == "x64") {
-    exec(
-      `npx cronos-build-x86_64-pc-windows-gnu ${args[0]}`,
-      (error, stdout, stderr) => {
+import { spawn, exec } from "child_process";
+var args = process.argv.slice(2);
+var projectType = args[0];
+console.clear();
+console.log("\x1b[31m---------------------");
+console.log("|  \x1b[37mCronos Build \uD83D\uDD25  \x1b[31m|");
+console.log("---------------------\x1b[37m");
+if (projectType == "--express") {
+    exec("npx swc ./src/index.ts -d build", function(error, stdout, stderr) {
         if (error) {
-          console.log(`${error.message}`);
-          return;
+            console.error("".concat(error.message));
+            return;
         }
         if (stderr) {
-          console.log(`${stderr}`);
-          return;
+            console.error("".concat(stderr));
+            return;
         }
-        console.log(`${stdout}`);
-      }
-    );
-  } else {
-    error();
-  }
-} else if (platform == "linux") {
-  if (arch == "x64") {
-    exec(
-      `npx cronos-build-x86_64-unknown-linux-musl ${args[0]}`,
-      (error, stdout, stderr) => {
+        console.log("".concat(stdout));
+    });
+} else if (projectType == "--react") {
+    exec("npx rspack build", function(error, stdout, stderr) {
         if (error) {
-          console.log(`${error.message}`);
-          return;
+            console.error("".concat(error.message));
+            return;
         }
         if (stderr) {
-          console.log(`${stderr}`);
-          return;
+            console.error("".concat(stderr));
+            return;
         }
-        console.log(`${stdout}`);
-      }
-    );
-  } else {
-    error();
-  }
+        console.log("".concat(stdout));
+    });
 }
+

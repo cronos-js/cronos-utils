@@ -5,7 +5,8 @@
   "type": "module",
   "main": "./bin/cronos-build.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "swc ./cronos-watch -o bin/cronos-watch.js && swc ./cronos-build -o bin/cronos-build.js && swc ./cronos-preview/src -o bin/cronos-preview.js"
   },
   "files": [
     "bin"
@@ -13,18 +14,15 @@
   "bin": {
     "cronos-build": "./bin/cronos-build.js",
     "cronos-preview": "./bin/cronos-preview.js",
-    "cronos-watch": "./bin/cronos-watch.js",
-
-    "cronos-build-x86_64-unknown-linux-musl": "./bin/x86_64-unknown-linux-musl/cronos-build",
-    "cronos-build-x86_64-pc-windows-gnu": "./bin/x86_64-pc-windows-gnu/cronos-build.exe",
-
-    "cronos-preview-x86_64-unknown-linux-musl": "./bin/x86_64-unknown-linux-musl/cronos-preview",
-    "cronos-preview-x86_64-pc-windows-gnu": "./bin/x86_64-pc-windows-gnu/cronos-preview.exe",
-
-    "cronos-watch-x86_64-unknown-linux-musl": "./bin/x86_64-unknown-linux-musl/cronos-watch",
-    "cronos-watch-x86_64-pc-windows-gnu": "./bin/x86_64-pc-windows-gnu/cronos-watch.exe"
+    "cronos-watch": "./bin/cronos-watch.js"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@swc/cli": "0.1.62"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
