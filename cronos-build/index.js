@@ -12,7 +12,7 @@ console.log("\x1b[31m|  \x1b[37mCronos Build 🔥  \x1b[31m|");
 console.log("\x1b[31m---------------------\x1b[37m");
 
 if (projectType == "--express") {
-  exec("npx swc ./src/index.ts -d build", (error, stdout, stderr) => {
+  exec("npx swc ./src -d build", (error, stdout, stderr) => {
     if (error) {
       console.error(`${error.message}`);
       return;
