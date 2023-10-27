@@ -6,8 +6,8 @@ var projectType = args[0];
 console.clear();
 console.clear();
 console.log("\x1b[31m---------------------");
-console.log("|  \x1b[37mCronos Watch \uD83D\uDD25  \x1b[31m|");
-console.log("---------------------\x1b[37m");
+console.log("\x1b[31m|  \x1b[37mCronos Watch \uD83D\uDD25  \x1b[31m|");
+console.log("\x1b[31m---------------------\x1b[37m");
 var isWin = os.platform() === "win32" || os.platform() === "win64";
 if (projectType == "--express") {
     spawn(isWin ? "npx.cmd" : "npx", [

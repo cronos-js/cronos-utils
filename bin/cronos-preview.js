@@ -6,8 +6,8 @@ var args = process.argv.slice(2);
 var projectType = args[0];
 console.clear();
 console.log("\x1b[31m---------------------");
-console.log("| \x1b[37mCronos Preview \uD83D\uDD25 \x1b[31m|");
-console.log("---------------------\x1b[37m");
+console.log("\x1b[31m| \x1b[37mCronos Preview \uD83D\uDD25 \x1b[31m|");
+console.log("\x1b[31m---------------------\x1b[37m");
 if (projectType == "--express") {
     spawn("node", [
         "./build/index.js"
