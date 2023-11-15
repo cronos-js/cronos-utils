@@ -21,7 +21,7 @@ if (projectType == "--express") {
   const __dirname = path.resolve();
 
   let host = "localhost";
-  let port = 5173;
+  let port = 4173;
 
   args.forEach((arg) => {
     if (arg.includes("host")) {

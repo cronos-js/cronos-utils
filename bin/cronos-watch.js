@@ -54,7 +54,7 @@ var printCronos_default = printCronos;
 
 // cronos-watch/src/index.js
 var import_os = __toESM(require("os"));
-var import_fs = __toESM(require("fs"));
+var import_fs2 = __toESM(require("fs"));
 var args = process.argv.slice(2);
 var projectType = args[0];
 var isWin = import_os.default.platform() === "win32" || import_os.default.platform() === "win64";
@@ -68,7 +68,7 @@ if (projectType == "--express") {
   );
 } else if (projectType == "--react") {
   let host = "localhost";
-  let port = 3000;
+  let port = 5173;
   args.forEach((arg) => {
     if (arg.includes("host")) {
       host = arg.split("=")[1];
@@ -83,7 +83,7 @@ if (projectType == "--express") {
     /host:\s*['"]\S+['"]/,
     'host: "' + host + '"'
   );
-  import_fs.default.writeFileSync("rspack.config.js", fileContent);
+  import_fs2.default.writeFileSync("rspack.config.js", fileContent);
   const rspack = (0, import_child_process.spawn)(isWin ? "npx.cmd" : "npx", ["rspack", "serve"]);
   rspack.stderr.on("data", (data) => {
     console.error(`${data}`);

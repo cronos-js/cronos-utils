@@ -22142,7 +22142,7 @@ if (projectType == "--express") {
 } else if (projectType == "--react") {
   const __dirname = import_path.default.resolve();
   let host = "localhost";
-  let port = 5173;
+  let port = 4173;
   args.forEach((arg) => {
     if (arg.includes("host")) {
       host = arg.split("=")[1];
