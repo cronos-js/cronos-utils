@@ -67,8 +67,8 @@ if (projectType == "--express") {
     }
   );
 } else if (projectType == "--react") {
-  let host;
-  let port;
+  let host = "localhost";
+  let port = 3000;
   args.forEach((arg) => {
     if (arg.includes("host")) {
       host = arg.split("=")[1];
