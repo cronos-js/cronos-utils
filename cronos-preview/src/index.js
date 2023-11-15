@@ -3,24 +3,44 @@
 import express from "express";
 import path from "path";
 import { exec, spawn } from "child_process";
-
+import os from "os";
+import printCronos from "../../tools/printCronos";
+import fs from "fs";
 
 const args = process.argv.slice(2);
 
 const projectType = args[0];
 
-console.clear();
-console.log("\x1b[31m───────────────────────\x1b[37m");
-console.log("\x1b[31m   \x1b[37mCronos Preview 🔥 \x1b[31m");
-console.log("\x1b[31m───────────────────────\x1b[37m");
+printCronos("preview");
 
 if (projectType == "--express") {
   spawn("node", ["./build/index.js"], {
     stdio: "inherit",
   });
 } else if (projectType == "--react") {
-
   const __dirname = path.resolve();
+
+  let host;
+  let port;
+
+  args.forEach((arg) => {
+    if (arg.includes("host")) {
+      host = arg.split("=")[1];
+    }
+    if (arg.includes("port")) {
+      port = arg.split("=")[1];
+    }
+  });
+
+  let fileContent = fs.readFileSync("rspack.config.js", "utf8");
+
+  fileContent = fileContent.replace(/port:\s*\d+/, "port: " + port);
+  fileContent = fileContent.replace(
+    /host:\s*['"]\S+['"]/,
+    'host: "' + host + '"'
+  );
+
+  fs.writeFileSync("rspack.config.js", fileContent);
 
   const app = express();
 
@@ -30,6 +50,34 @@ if (projectType == "--express") {
     res.sendFile(path.join(__dirname, "./dist/index.html"));
   });
 
-  app.listen(5800);
-  console.log("🚀 Server running on \x1b[33mhttp://localhost:5800\x1b[37m");
+  app.listen(port, host, () => {
+    function getIPAddresses() {
+      const interfaces = os.networkInterfaces();
+      const ipAddresses = [];
+
+      for (const name in interfaces) {
+        for (let index = 0; index < interfaces[name].length; index++) {
+          const { address, family, internal } = interfaces[name][index];
+
+          if (family === "IPv4" && !internal) {
+            ipAddresses.push(address);
+          }
+        }
+      }
+
+      return ipAddresses;
+    }
+
+    if (host === "0.0.0.0") {
+      console.log(`🚀 Server running on:\n`);
+
+      getIPAddresses().forEach((element) => {
+        console.log(
+          "  →  \x1b[36mhttp://".concat(element, ":").concat(port, "\x1b[37m")
+        );
+      });
+    } else {
+      console.log(`🚀 Server running on http://${host}:${port}`);
+    }
+  });
 }

@@ -1,15 +1,13 @@
 #!/usr/bin/env node
 
-import { spawn, exec } from "child_process";
+import { exec } from "child_process";
+import printCronos from "../../tools/printCronos";
 
 const args = process.argv.slice(2);
 
 const projectType = args[0];
 
-console.clear();
-console.log("\x1b[31m───────────────────────\x1b[37m");
-console.log("\x1b[31m    \x1b[37mCronos Build 🔥  \x1b[31m");
-console.log("\x1b[31m───────────────────────\x1b[37m");
+printCronos("build");
 
 if (projectType == "--express") {
   exec("npx swc ./src -d build", (error, stdout, stderr) => {
@@ -21,7 +19,11 @@ if (projectType == "--express") {
       console.error(`${stderr}`);
       return;
     }
-    console.log(`${stdout}`);
+
+    let regex = /swc(.*)/;
+    let match = stdout.match(regex);
+    const time = match[1].replace(/\s/g, "").replace(/\(|\)/g, "");
+    console.log(`⚡ Build in \x1b[33m\x1b[1m${time}\x1b[0m\x1b[37m`);
   });
 } else if (projectType == "--react") {
   exec("npx rspack build", (error, stdout, stderr) => {
@@ -33,6 +35,12 @@ if (projectType == "--express") {
       console.error(`${stderr}`);
       return;
     }
-    console.log(`${stdout}`);
+
+    if (stdout) {
+      let regex = /in(.*)/;
+      let match = stdout.match(regex);
+      console.log(`⚡ Build in \x1b[33m\x1b[1m${match[0]}\x1b[0m\x1b[37m`);
+      return;
+    }
   });
 }
