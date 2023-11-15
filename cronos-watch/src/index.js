@@ -32,7 +32,8 @@ if (projectType == "--express") {
     }
   });
 
-  let fileContent = import_fs.default.readFileSync("rspack.config.js", "utf8");
+  let fileContent = fs.readFileSync("rspack.config.js", "utf8");
+
   fileContent = fileContent.replace(/port:\s*\d+/, "port: " + port);
 
   fileContent = fileContent.replace(
