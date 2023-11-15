@@ -20,8 +20,8 @@ if (projectType == "--express") {
 } else if (projectType == "--react") {
   const __dirname = path.resolve();
 
-  let host;
-  let port;
+  let host = "localhost";
+  let port = 5173;
 
   args.forEach((arg) => {
     if (arg.includes("host")) {
