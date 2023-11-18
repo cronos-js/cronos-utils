@@ -6,6 +6,7 @@ import { exec, spawn } from "child_process";
 import os from "os";
 import printCronos from "../../tools/printCronos";
 import fs from "fs";
+import { expressDetectTypescript } from "../../tools/expressDetectIndex";
 
 const args = process.argv.slice(2);
 
@@ -14,8 +15,10 @@ const projectType = args[0];
 printCronos("preview");
 
 if (projectType == "--express") {
-  spawn("node", ["./build/index.js"], {
-    stdio: "inherit",
+  expressDetectTypescript((expressTS) => {
+    spawn("node", ["./build/index.js"], {
+      stdio: "inherit",
+    });
   });
 } else if (projectType == "--react") {
   const __dirname = path.resolve();

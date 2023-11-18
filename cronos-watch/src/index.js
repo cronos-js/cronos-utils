@@ -4,6 +4,7 @@ import { spawn, exec } from "child_process";
 import printCronos from "../../tools/printCronos";
 import os from "os";
 import fs from "fs";
+import { expressDetectTypescript } from "../../tools/expressDetectIndex";
 
 const args = process.argv.slice(2);
 
@@ -12,13 +13,15 @@ const projectType = args[0];
 const isWin = os.platform() === "win32" || os.platform() === "win64";
 
 if (projectType == "--express") {
-  spawn(
-    isWin ? "npx.cmd" : "npx",
-    ["nodemon", "--exec", "ts-node", "src/index.ts"],
-    {
+  expressDetectTypescript((expressTS) => {
+    nodemonComand = expressTS
+      ? ["nodemon", "--exec", "ts-node", "src/index.ts"]
+      : ["nodemon", "src/index.js"];
+
+    spawn(isWin ? "npx.cmd" : "npx", nodemonComand, {
       stdio: "inherit",
-    }
-  );
+    });
+  });
 } else if (projectType == "--react") {
   let host = "localhost";
   let port = 5173;

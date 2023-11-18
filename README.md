@@ -2,6 +2,6 @@
 
 | Package | Version |
 | --- | --- |
-| cronos-build | 0.1.3 |
-| cronos-preview | 0.1.2 |
-| cronos-watch | 0.1.2 |
+| cronos-build | 0.1.4 |
+| cronos-preview | 0.1.3 |
+| cronos-watch | 0.1.3 |

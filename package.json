@@ -1,14 +1,17 @@
 {
   "name": "cronos-utils",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "",
   "main": "./bin/cronos-build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:build": "esbuild ./cronos-build/src/index.js --bundle --outfile=./bin/cronos-build.js --platform=node",
-    "build:preview": "esbuild ./cronos-preview/src/index.js --bundle --outfile=./bin/cronos-preview.js --platform=node",
-    "build:watch": "esbuild ./cronos-watch/src/index.js --bundle --outfile=./bin/cronos-watch.js --platform=node",
-    "build": "npm run build:build && npm run build:preview && npm run build:watch"
+    "build:build": "esbuild ./cronos-build/src/index.js --bundle --outfile=./bin/cronos-build.js --platform=node --minify",
+    "build:preview": "esbuild ./cronos-preview/src/index.js --bundle --outfile=./bin/cronos-preview.js --platform=node --minify",
+    "build:watch": "esbuild ./cronos-watch/src/index.js --bundle --outfile=./bin/cronos-watch.js --platform=node --minify",
+    "build": "npm run build:build && npm run build:preview && npm run build:watch",
+    "watch:watch": "esbuild ./cronos-watch/src/index.js --bundle --outfile=./bin/cronos-watch.js --platform=node --watch",
+    "watch:build": "esbuild ./cronos-build/src/index.js --bundle --outfile=./bin/cronos-build.js --platform=node --watch",
+    "watch:preview": "esbuild ./cronos-preview/src/index.js --bundle --outfile=./bin/cronos-preview.js --platform=node --watch"
   },
   "files": [
     "bin"
@@ -23,7 +26,8 @@
   "license": "MIT",
   "devDependencies": {
     "@swc/cli": "0.1.62",
-    "esbuild": "0.19.5"
+    "esbuild": "0.19.5",
+    "sharp": "^0.32.6"
   },
   "dependencies": {
     "express": "^4.18.2"
