@@ -1,5 +1,7 @@
 # CHANGELOG
 
+Return to [README.md](../../README.md)
+
 ## [0.1.10] - 12/10/2021
 
 ### Add
