@@ -72,9 +72,25 @@ if (projectType == '--express') {
 	args.forEach((arg) => {
 		if (arg.includes('host')) {
 			host = arg.split('=')[1];
+
+			let fileContent = fs.readFileSync('Rspack.config.js', 'utf8');
+
+			fileContent = fileContent.replace(
+				/host:\s*['"]\S+['"]/,
+				'host: "' + host + '"'
+			);
+
+			fs.writeFileSync('Rspack.config.js', fileContent);
 		}
+
 		if (arg.includes('port')) {
 			port = arg.split('=')[1];
+
+			let fileContent = fs.readFileSync('Rspack.config.js', 'utf8');
+
+			fileContent = fileContent.replace(/port:\s*\d+/, 'port: ' + port);
+
+			fs.writeFileSync('Rspack.config.js', fileContent);
 		}
 	});
 
