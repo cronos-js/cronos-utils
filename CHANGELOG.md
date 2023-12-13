@@ -2,7 +2,13 @@
 
 Return to [README.md](../../README.md)
 
-## [0.1.10] - 12/10/2023
+## [0.1.11] - 13/12/2023
+
+### Fix
+
+- Fixed [cronos-watch](./src/cronos-watch/src/index.js) so that when using the frontend API (port) it now has priority and updating the rspack.config.js file.
+
+## [0.1.10] - 12/12/2023
 
 ### Add
 
