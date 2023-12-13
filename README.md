@@ -38,6 +38,7 @@
 
 ## Supported frameworks and libraries
 
+- [x] [Express](https://expressjs.com/)
 - [x] [React](https://reactjs.org/)
 - [x] [Vue](https://vuejs.org/)
 
