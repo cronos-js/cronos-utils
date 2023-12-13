@@ -1,7 +1,12 @@
 {
   "name": "cronos-utils",
   "version": "0.1.11",
-  "description": "",
+  "description": "Colection of utilities for Cronos",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cronos-js/cronos-utils"
+  },
+  "homepage": "cronosjs.dev/",
   "main": "./bin/cronos-build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,7 +29,10 @@
     "cronos-preview": "./bin/cronos-preview.js",
     "cronos-watch": "./bin/cronos-watch.js"
   },
-  "keywords": [],
+  "keywords": [
+    "cronos",
+    "cronos-utils"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
