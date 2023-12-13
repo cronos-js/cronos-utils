@@ -36,6 +36,11 @@
 
 ##### `Observa` los cambios en tu aplicación utilizando un servidor de desarrollo o reiniciando node.
 
+## Frameworks y librerías soportadas
+
+- [x] [React](https://reactjs.org/)
+- [x] [Vue](https://vuejs.org/)
+
 ## CHANGELOG
 
 Consulta el archivo [CHANGELOG](CHANGELOG.md) para obtener detalles sobre los cambios realizados en cada versión del proyecto.
