@@ -4,6 +4,8 @@
 
 ### Add
 
+- [Vue](https://vuejs.org/) support is now available.
+
 - [CHANGELOG.md](CHANGELOG.md) file was included to keep track of the changes made in each version of the project.
 
 - The [README.md](README.md) file was updated to include the CHANGELOG section, the LICENSE section and the Language section.
